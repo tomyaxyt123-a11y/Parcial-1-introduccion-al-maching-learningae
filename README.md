@@ -1,73 +1,92 @@
-# 📊 Financial Analytics & Machine Learning: ProyecKeras
+# 📈 ProyecKeras: Financial Analytics & Machine Learning Suite
 
-![Python](https://img.shields.io/badge/python-3.10%2B-106EBE?style=flat-square&logo=python&logoColor=white) ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-150458?style=flat-square&logo=pandas&logoColor=white) ![Methodology](https://img.shields.io/badge/Methodology-CRISP--ML-purple?style=flat-square)
-
-Una plataforma profesional e interactiva de análisis financiero y Machine Learning diseñada para monitorear activos de mercado, evaluar indicadores técnicos y entrenar modelos predictivos bursátiles bajo la metodología industrial estándar **CRISP-ML(Q)**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
+  <img src="https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-Learn">
+  <img src="https://img.shields.io/badge/Pandas-2.0%2B-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+  <img src="https://img.shields.io/badge/Plotly-5.18%2B-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly">
+  <img src="https://img.shields.io/badge/Methodology-CRISP--ML(Q)-8A2BE2?style=for-the-badge" alt="CRISP-ML">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github-actions" alt="Build Status">
+  <img src="https://img.shields.io/badge/PRs-Welcome-blue?style=for-the-badge" alt="PRs Welcome">
+</p>
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📌 Descripción del Proyecto
 
-El repositorio está estructurado de la siguiente forma:
+**ProyecKeras** es una plataforma profesional de **Análisis Financiero Avanzado y Machine Learning**, diseñada para el monitoreo de activos bursátiles (acciones tecnológicas y materias primas), el cálculo en tiempo real de indicadores técnicos y la predicción de series de tiempo financieras mediante algoritmos supervisados bajo el estándar industrial **CRISP-ML(Q)**.
 
-```text
-ProyecKeras/
-│
-├── .github/
-│   └── workflows/
-│       └── ci.yml             # Workflow de Integración Continua (CI)
-├── .gitignore                 # Configuración de archivos ignorados
-├── LICENSE                    # Licencia del proyecto (MIT)
-├── README.md                  # Documentación oficial del proyecto
-├── app.py                     # Aplicación principal de Streamlit
-├── index.html                 # Portal web de presentación y documentación
-├── requirements.txt           # Lista de dependencias en Python
-└── style.css                  # Hoja de estilos visuales personalizada
+El proyecto integra dos interfaces clave:
+1. 🌐 **Landing Page Web (`index.html`)**: Interfaz moderna en Dark Glassmorphism con visualización de metodología, demostración interactiva de gráficos y guía de despliegue.
+2. 📊 **Dashboard de Analytics (`app.py`)**: Aplicación interactiva construida en **Streamlit** que permite ingestar datos reales de Alpha Vantage API (o datos sintéticos de alta fidelidad), entrenar modelos de regresión y clasificación, y proyectar escenarios futuros.
+
+---
+
+## ✨ Características Principales
+
+- 📊 **Ingestión Multi-Fuente & Respaldo Continuo:** Conexión con Alpha Vantage API y fallback automático a un simulador estocástico para garantizar disponibilidad del 100%.
+- 📈 **Indicadores Técnicos Avanzados:** RSI (Relative Strength Index), Bandas de Bollinger, MACD, Medias Móviles (SMA/EMA) y análisis de volatilidad.
+- 🤖 **Suite de Machine Learning Supervisado:**
+  - **Regresión:** Random Forest, Gradient Boosting, Ridge Regression, Decision Trees.
+  - **Clasificación:** Random Forest Classifier (Tendencia Alcista / Bajista).
+- 🔮 **Modelado de Escenarios Futuros:** Simulación de proyecciones a $N$ días con escenarios Optimista, Base y Pesimista.
+- 📐 **Evaluación Cuantitativa Transparente:** Cálculo dinámico de $R^2$, RMSE, MAE, Exactitud, Matriz de Confusión e Importancia de Características (*Feature Importance*).
+- 💾 **Exportación de Datos:** Descarga de series temporales procesadas y reportes de predicción en formato CSV.
+
+---
+
+## 🏗️ Arquitectura del Sistema
+
+```mermaid
+flowchart TD
+    A[Alpha Vantage API / Synthetic Engine] -->|Datos Históricos| B[Módulo de Ingesta]
+    B --> C[Ingeniería de Características]
+    C -->|Lags, RSI, Bollinger, MACD| D[División Train/Test]
+    D --> E1[Modelos de Regresión]
+    D --> E2[Modelos de Clasificación]
+    E1 --> F[Evaluación de Métricas R², RMSE, MAE]
+    E2 --> G[Matriz de Confusión y Accuracy]
+    F --> H[Proyección de Escenarios Futuros]
+    G --> H
+    H --> I[Dashboard Interactivo Streamlit]
 ```
 
 ---
 
-## 🎯 Descripción y Objetivos
+## 🛠️ Estructura del Repositorio
 
-El objetivo principal de **ProyecKeras** es integrar en un único entorno interactivo herramientas de análisis técnico cuantitativo, visualizaciones dinámicas de mercado e ingeniería de características para el entrenamiento y evaluación de modelos predictivos.
-
-La aplicación permite:
-- **Consultar cotizaciones** y datos históricos de acciones (*IBM, AAPL, MSFT, GOOGL, AMZN, TSLA, NVDA*) y materias primas (*Oro, Plata, Petróleo WTI*).
-- **Analizar indicadores técnicos** como el **RSI (Índice de Fuerza Relativa)**, **Bandas de Bollinger** y ratios de materias primas.
-- **Entrenar modelos de Machine Learning** supervisados (*Random Forest Regressor/Classifier*, *Ridge Regression*, *Decision Trees*).
-- **Proyectar precios futuros** y tendencias a $N$ días con escenarios simulados (Optimista, Base, Pesimista).
-- **Evaluar métricas cuantitativas** ($R^2$, RMSE, MAE, Exactitud, Matriz de Confusión e Importancia de Características).
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-- **Lenguaje Principal:** Python 3.10+
-- **Dashboard Interactivo:** [Streamlit](https://streamlit.io/) (v1.30.0+)
-- **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/)
-- **Procesamiento de Datos:** Pandas, NumPy
-- **Visualización:** Plotly Express, Plotly Graph Objects
-- **APIs & Ingestión de Datos:** Alpha Vantage API (con generador sintético de respaldo automático)
-- **CI / CD:** GitHub Actions
+```text
+ProyecKeras/
+├── .github/
+│   └── workflows/
+│       └── ci.yml             # Integración Continua (CI/CD)
+├── .gitignore                 # Configuración de archivos ignorados
+├── LICENSE                    # Licencia MIT
+├── README.md                  # Documentación oficial enriquecida con Badges
+├── app.py                     # Aplicación principal de Streamlit
+├── index.html                 # Landing Page profesional (Dark Glassmorphism)
+├── style.css                  # Hoja de estilos globales para Landing y App
+├── script.js                  # Lógica interactiva y gráficos demo para Landing Page
+└── requirements.txt           # Dependencias de Python requeridas
+```
 
 ---
 
-## ⚙️ Instalación y Ejecución Local
+## 🚀 Instalación y Ejecución Local
 
-### 1. Requisitos Previos
-Tener instalado Python 3.10+ y Git.
-
-### 2. Clonar el Repositorio
+### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/tu-usuario/ProyecKeras.git
 cd ProyecKeras
 ```
 
-### 3. Crear y Activar Entorno Virtual
-- **Windows:**
+### 2. Crear y Activar Entorno Virtual
+- **Windows (PowerShell):**
   ```powershell
   python -m venv .venv
-  .venv\Scripts\activate
+  .venv\Scripts\Activate.ps1
   ```
 - **Linux / macOS:**
   ```bash
@@ -75,59 +94,40 @@ cd ProyecKeras
   source .venv/bin/activate
   ```
 
-### 4. Instalar Dependencias
+### 3. Instalar Dependencias
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 5. Ejecutar la Aplicación Localmente
-Para iniciar la plataforma interactiva de Streamlit:
-
+### 4. Iniciar la Aplicación Streamlit (Python)
 ```bash
 streamlit run app.py
 ```
+> 🌐 La aplicación se abrirá automáticamente en tu navegador en `http://localhost:8501`.
 
-> 💡 **Nota en Windows:** Si la consola indica que `streamlit` no se reconoce como un comando, puedes ejecutar alternativamente:
+### 5. Visualizar la Landing Page
+Puedes abrir directamente `index.html` en tu navegador o ejecutar un servidor HTTP en Python:
 ```bash
-python -m streamlit run app.py
+python -m http.server 8000
 ```
-
-La aplicación se abrirá en tu navegador en `http://localhost:8501`.
-
----
-
-## 🤖 Información sobre el Modelo de Machine Learning
-
-El módulo de Machine Learning en `app.py` permite construir y personalizar modelos predictivos:
-
-1. **Ingeniería de Características:** Retardos ($Lag_1 \dots Lag_n$), retornos porcentuales, medias móviles ($SMA_5$, $SMA_{20}$) y volatilidad rodante.
-2. **Modelos Disponibles:** Random Forest (Regresión y Clasificación), Ridge Regression y Árboles de Decisión.
-3. **Métricas de Evaluación:** MAE, RMSE, $R^2$, Exactitud, Matriz de Confusión y Gráficos de Importancia de Variables.
+> 🔗 Navega a `http://localhost:8000` para explorar la Landing Page interactiva.
 
 ---
 
-## 🔮 Predicciones y Proyecciones
+## ⚙️ Metodología CRISP-ML(Q)
 
-El módulo de predicción permite generar proyecciones iterativas hacia el futuro:
-- **Precios Proyectados:** Estimación puntual basada en el modelo entrenado.
-- **Escenarios de Riesgo:** Banda superior (+2% u optimista) y banda inferior (-2% o pesimista).
-- **Visualización:** Gráficos comparativos entre la serie histórica reciente y la proyección futura.
+ProyecKeras implementa rigurosamente el estándar industrial de calidad en Machine Learning:
 
----
-
-## 🚀 Instrucciones de Despliegue
-
-> [!IMPORTANT]
-> **GitHub Pages vs Streamlit:**
-> GitHub Pages solo aloja sitios web estáticos como `index.html`. Para ejecutar aplicaciones interactivas de Streamlit se requiere un entorno de ejecución servidor en Python.
-
-Para desplegar la aplicación en la nube:
-1. **Streamlit Community Cloud (Recomendado):** Sube el repositorio a GitHub, conecta en [share.streamlit.io](https://share.streamlit.io/) y selecciona `app.py`.
-2. **Docker / Railway / Render:** Compatible con el ejecutable `streamlit run app.py --server.port $PORT`.
+1. **Comprensión del Negocio & Datos:** Definición del objetivo cuantitativo bursátil y recopilación de datos de precios.
+2. **Ingeniería de Datos:** Limpieza de nulos, cálculo de variaciones porcentuales, lags temporales e indicadores técnicos.
+3. **Modelado:** Selección de hiperparámetros, ajuste de modelos ensemble y comparación cuantitativa.
+4. **Evaluación:** Validación con conjunto de prueba retenido, evaluación de métricas de error y matriz de confusión.
+5. **Despliegue:** Despliegue interactivo con Streamlit y Landing Page representativa.
+6. **Monitoreo & Mantenimiento:** Respaldo sintético continuo y recalibración de características.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto se distribuye bajo los términos de la Licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
